@@ -4,6 +4,9 @@ pipeline {
     }
 
    environment {
+       AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_IDC')
+       AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEYC')
+       AWS_DEFAULT_REGION = 'us-east-1'
        lista_correo = 'devopschrisrd@gmail.com'
        texto_correo = "El pipeline ${build_url}."
        texto_correo2 = "El pipeline ${build_url} no se creo correctamente."
@@ -25,6 +28,12 @@ pipeline {
        stage('Mostrar Archivos'){
            steps{
               sh 'ls -la'
+           }
+          }
+
+       stage('Deploy to AWS'){
+           steps{
+              sh 'aws s3 cp dist/AngularApp-Christopher/ s3://proyecto-christopher --recursive'
            }
        }
 
