@@ -27,7 +27,7 @@ pipeline {
 
        stage('Mostrar Archivos'){
            steps{
-              sh 'ls -la'
+              sh 'ls -la dist'
            }
           }
 
