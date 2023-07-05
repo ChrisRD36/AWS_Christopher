@@ -6,7 +6,7 @@ pipeline {
    environment {
        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_IDC')
        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEYC')
-       AWS_DEFAULT_REGION = 'us-east-1'
+       AWS_DEFAULT_REGION = 'us-east-2'
        lista_correo = 'devopschrisrd@gmail.com'
        texto_correo = "El pipeline ${build_url}."
        texto_correo2 = "El pipeline ${build_url} no se creo correctamente."
@@ -33,7 +33,7 @@ pipeline {
 
        stage('Deploy to AWS'){
            steps{
-              sh 'aws s3 cp dist/Proyecto_AWS/ s3://proyecto-christopher --recursive'
+              sh 'aws s3 cp dist/AWS_Christopher/ s3://proyecto-christopher'
            }
        }
 
