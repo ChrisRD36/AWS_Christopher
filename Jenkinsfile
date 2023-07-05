@@ -33,7 +33,7 @@ pipeline {
 
        stage('Deploy to AWS'){
            steps{
-              sh 'aws s3 cp dist/AWS_Christopher/ s3://proyecto-christopher'
+              sh 'aws s3 cp dist/DevOps/ s3://proyecto-christopher --recursive'
            }
        }
 
