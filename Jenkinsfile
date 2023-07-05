@@ -33,7 +33,7 @@ pipeline {
 
        stage('Deploy to AWS'){
            steps{
-              sh 'aws s3 cp dist/Integracion continua/ s3://proyectoawschristopher --recursive'
+              sh 'aws s3 cp dist/angular-app/ s3://proyectoawschristopher --recursive'
            }
        }
 
